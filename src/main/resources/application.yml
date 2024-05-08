@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: we-work
+  profiles:
+    active: dev
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    url: # ${MYSQL_HOST:localhost}:3306/db_example?createDatabaseIfNotExist=true
+    username: spring-test-prd
+    password: spring-test-prd
+    driver-class-name: com.mysql.cj.jdbc.Driver
