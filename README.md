@@ -1,4 +1,4 @@
-#WE-WORK
+# WE-WORK
 
 Seja bem-vindo ao Tech Challenge FIAP - WE-WORK!
 
