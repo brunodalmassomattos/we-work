@@ -35,6 +35,8 @@ Links Úteis:
 Junte-se à comunidade Tech Challenge FIAP e torne o WE-WORK a melhor plataforma de gerenciamento de eventos, salas e reservas!
 
 ## Payload ###
+
+#### Autenticação #### 
 ```console
 curl --location 'http://localhost:8080/auth/login' \
 --header 'Content-Type: application/json' \
