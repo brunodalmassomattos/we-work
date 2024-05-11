@@ -4,19 +4,6 @@ spring:
 #  profiles:
 #    active: dev
 
-  jpa:
-    defer-datasource-initialization: true
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.H2Dialect
-        format_sql: true
-    sql:
-      init:
-        mode: always
-
   datasource:
     url: jdbc:h2:file:./we-work-prd
     username: sa
@@ -26,4 +13,21 @@ spring:
     console:
       enabled: true
       path: /h2-console
-      
+
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
+  sql:
+    init:
+      mode: always
+
+api:
+  security:
+    token:
+      secret: my-secret
