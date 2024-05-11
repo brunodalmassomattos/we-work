@@ -26,7 +26,7 @@ Tecnologias Utilizadas:
   - Spring framework
   - Lombok
   - Azure
-  - MySQL
+  - H2
   
 Links Úteis:
   - [Inserir aqui links do MIRO, etc.]
