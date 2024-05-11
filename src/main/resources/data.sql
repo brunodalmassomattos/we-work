@@ -1,0 +1,5 @@
+insert into users(id, name, email, password) values('cffcb587-e465-4d36-ae40-c7db920bf725', 'Bruno', 'bruno@email.com', '123456')
+insert into users(id, name, email, password) values('6eaf0bb6-6783-42c9-abd5-ea1e585e8d57', 'Guilherme', 'guilherme@email.com', '123456')
+insert into users(id, name, email, password) values('61808d6b-113e-4783-a149-f3b9da4b663a', 'Aline', 'aline@email.com', '123456')
+insert into users(id, name, email, password) values('ffed21c5-41b9-4750-a871-94a1697de9fe', 'Wendel', 'wendel@email.com', '123456')
+insert into users(id, name, email, password) values('5d1f7b66-2bf3-4328-9f8f-00f8834a07f7', 'Matheus', 'matheus@email.com', '123456')
