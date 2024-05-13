@@ -1,6 +1,6 @@
 package br.com.fiap.wework.infra.security;
 
-import br.com.fiap.wework.domain.usuario.User;
+import br.com.fiap.wework.domain.usuario.Usuario;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -18,7 +18,7 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
 
-    public String generateToken(User user) {
+    public String generateToken(Usuario user) {
         try {
             Algorithm algorithm = Algorithm.HMAC256(secret);
             return JWT.create()

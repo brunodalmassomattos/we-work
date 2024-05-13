@@ -1,10 +1,10 @@
 package br.com.fiap.wework.controller;
 
-import br.com.fiap.wework.domain.usuario.User;
+import br.com.fiap.wework.domain.usuario.Usuario;
 import br.com.fiap.wework.dto.LoginRequestDTO;
 import br.com.fiap.wework.dto.LoginResponseDTO;
 import br.com.fiap.wework.infra.security.TokenService;
-import br.com.fiap.wework.repositories.UserRepository;
+import br.com.fiap.wework.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final UserRepository userRepository;
+    private final UsuarioRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final TokenService tokenService;
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO) {
-        User user = userRepository.findByEmail(loginRequestDTO.email()).orElseThrow(() -> new RuntimeException("User not found"));
-        if (!passwordEncoder.matches(loginRequestDTO.password(), user.getPassword())) {
+        Usuario user = userRepository.findByEmail(loginRequestDTO.email()).orElseThrow(() -> new RuntimeException("User not found"));
+        if (!passwordEncoder.matches(loginRequestDTO.password(), user.getSenha())) {
             String token = this.tokenService.generateToken(user);
-            return ResponseEntity.ok(new LoginResponseDTO(user.getId(), user.getName(), token));
+            return ResponseEntity.ok(new LoginResponseDTO(user.getId(), user.getNome(), token));
         }
 
         return ResponseEntity.badRequest().build();
