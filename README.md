@@ -2,34 +2,27 @@
 
 Seja bem-vindo ao Tech Challenge FIAP - WE-WORK!
 
-Gerencie seus eventos, salas e reservas com facilidade e eficiência com nosso sistema WE-WORK. Uma plataforma completa para.
+O objetivo deste projeto é criar um sistema de gestão de espaços compartilhados que permita aos usuários reservarem espaços de forma eficiente e conveniente. Inspirado no modelo de negócios da WeWork, o sistema visa oferecer uma plataforma intuitiva e integrada para a gestão de espaços, locações e perfis de usuários.
 
-Gerenciamento de Eventos: 
-  - Crie, edite e visualize eventos com todos os detalhes, incluindo local, data, hora, palestrantes e inscrições.
-    
-Gerenciamento de Salas: 
-  - Cadastre, visualize e gerencie suas salas, anfiteatros e espaços para locação. Inclua fotos, descrições detalhadas e defina horários de disponibilidade.
-    
-Sistema de Reservas: 
-  - Permita que os usuários reservem salas para seus eventos de forma online, automatizando o processo e evitando conflitos.
+O sistema incluirá funcionalidades para:
+  - Cadastro e gerenciamento de usuários, permitindo que eles criem perfis personalizados e acessem os espaços disponíveis.
+  - Cadastro e gerenciamento de espaços, permitindo que os locatários cadastrem novos espaços, alterem suas características e os excluam conforme necessário.
+  - Reserva de espaços, permitindo que os usuários reservem espaços disponíveis de acordo com suas necessidades.
+  - Notificação automática aos locadores quando um espaço for reservado, garantindo que estejam cientes da presença dos usuários.
+  - Notificação aos locatários para garantir que os pagamentos sejam processados de forma eficiente.
 
-Painel Administrativo:
-  - Acesse um painel completo com relatórios, estatísticas e ferramentas para gerenciar seus eventos, salas e reservas.
 
-Funcionalidades Adicionais:
-  - Envie convites e lembretes para os participantes dos eventos.
-
-#### Este projeto está em fase de desenvolvimento e buscamos a colaboração da comunidade para aprimorá-lo. Se você tem conhecimentos em desenvolvimento web, design ou UX, junte-se a nós!
+#### Este projeto está em fase de desenvolvimento!
 
 Tecnologias Utilizadas:
-  - Java 11;
-  - Spring framework
+  - Java 17;
+  - Spring framework 3.2.5;
+  - Spring Security;
+  - H2;
   - Lombok
-  - Azure
-  - H2
   
 Links Úteis:
-  - [Inserir aqui links do MIRO, etc.]
+  - https://miro.com/welcomeonboard/cEc3SDhhaXJITFFXbmlQVWdxNm1jNW9xQVZVb1ZURUlsYkc5UndSYjlXUGxJUjRweVBzZzhVRmJCdUxneGs3T3wzNDU4NzY0NTg1NjQwMTU1NTA5fDI=?share_link_id=418132598250
 
 
 Junte-se à comunidade Tech Challenge FIAP e torne o WE-WORK a melhor plataforma de gerenciamento de eventos, salas e reservas!
