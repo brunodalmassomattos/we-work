@@ -31,7 +31,6 @@ public class Usuario {
     @Temporal(TemporalType.DATE)
     private Date dataAbertura;
 
-    @Column(unique = true)
     private String email;
 
     private String senha;

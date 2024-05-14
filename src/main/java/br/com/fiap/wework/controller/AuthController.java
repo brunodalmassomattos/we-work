@@ -1,5 +1,6 @@
 package br.com.fiap.wework.controller;
 
+import br.com.fiap.wework.controller.exception.ControllerNotFoundException;
 import br.com.fiap.wework.domain.usuario.Usuario;
 import br.com.fiap.wework.dto.LoginRequestDTO;
 import br.com.fiap.wework.dto.LoginResponseDTO;
@@ -24,7 +25,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO) {
-        Usuario user = userRepository.findByEmail(loginRequestDTO.email()).orElseThrow(() -> new RuntimeException("User not found"));
+        Usuario user = userRepository.findByEmail(loginRequestDTO.email()).orElseThrow(() -> new ControllerNotFoundException("User not found"));
         if (!passwordEncoder.matches(loginRequestDTO.password(), user.getSenha())) {
             String token = this.tokenService.generateToken(user);
             return ResponseEntity.ok(new LoginResponseDTO(user.getId(), user.getNome(), token));
