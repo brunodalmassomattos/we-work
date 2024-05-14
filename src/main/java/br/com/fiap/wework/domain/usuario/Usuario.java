@@ -14,14 +14,13 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    enum Perfil { LOCADOR, LOCATARIO, ADMINISTRADOR; }
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    private String name;
+    private String nome;
 
     @Column(name = "CPF_CNPJ")
     private String cpfCnpj;
@@ -32,11 +31,12 @@ public class User {
     @Temporal(TemporalType.DATE)
     private Date dataAbertura;
 
-    @Column(unique = true)
     private String email;
 
-    private String password;
+    private String senha;
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
     private Perfil perfil;
+
+    private String status;
 }

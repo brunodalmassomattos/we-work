@@ -1,7 +1,7 @@
 package br.com.fiap.wework.infra.security;
 
-import br.com.fiap.wework.domain.usuario.User;
-import br.com.fiap.wework.repositories.UserRepository;
+import br.com.fiap.wework.domain.usuario.Usuario;
+import br.com.fiap.wework.repositories.UsuarioRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ public class SecurityFilter extends OncePerRequestFilter {
     private TokenService tokenService;
 
     @Autowired
-    private UserRepository userRepository;
+    private UsuarioRepository userRepository;
 
 
     @Override
@@ -32,7 +32,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var login = this.tokenService.validateToken(token);
 
         if (login != null) {
-            User user = userRepository.findByEmail(login).orElseThrow(() -> new RuntimeException("User not found"));
+            Usuario user = userRepository.findByEmail(login).orElseThrow(() -> new RuntimeException("User not found"));
             var roleUser = Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
             var authentication = new UsernamePasswordAuthenticationToken(user, login, roleUser);
             SecurityContextHolder.getContext().setAuthentication(authentication);

@@ -18,13 +18,25 @@ public class ControllerExceptionHandler {
     @ExceptionHandler(ControllerNotFoundException.class)
     public ResponseEntity<StandardError> entityNotFound(ControllerNotFoundException exception,
                                                         HttpServletRequest request) {
-        standardError.setTimeStamp(Instant.now());
-        standardError.setStatus(HttpStatus.NOT_FOUND.value());
-        standardError.setError("Entity not found");
-        standardError.setMessage(exception.getMessage());
-        standardError.setPath(request.getRequestURI());
+        this.standardError.setTimeStamp(Instant.now());
+        this.standardError.setStatus(HttpStatus.NOT_FOUND.value());
+        this.standardError.setError("Entity not found");
+        this.standardError.setMessage(exception.getMessage());
+        this.standardError.setPath(request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(this.standardError);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<StandardError> validation(DataIntegrityViolationException exception,
+                                                    HttpServletRequest request) {
+        this.standardError.setTimeStamp(Instant.now());
+        this.standardError.setStatus(HttpStatus.BAD_REQUEST.value());
+        this.standardError.setError("Entity duplicaded");
+        this.standardError.setMessage(exception.getMessage());
+        this.standardError.setPath(request.getRequestURI());
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(this.standardError);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -39,20 +51,6 @@ public class ControllerExceptionHandler {
         validateError.setPath(request.getRequestURI());
 
         exception.getBindingResult().getFieldErrors().forEach(item -> validateError.addMessage(item.getField(), item.getDefaultMessage()));
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validateError);
-    }
-
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<StandardError> validation(DataIntegrityViolationException exception,
-                                                    HttpServletRequest request) {
-        var validateError = new ValidateError();
-
-        validateError.setTimeStamp(Instant.now());
-        validateError.setStatus(HttpStatus.BAD_REQUEST.value());
-        validateError.setError("Entity duplicaded");
-        validateError.setMessage(exception.getMessage());
-        validateError.setPath(request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validateError);
     }
