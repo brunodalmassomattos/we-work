@@ -29,6 +29,7 @@ public class UsuaioService {
         usuarioSelecionado.setEmail(usuario.getEmail());
         usuarioSelecionado.setSenha(usuario.getSenha() == null ? usuarioSelecionado.getSenha() : usuario.getSenha());
         usuarioSelecionado.setPerfil(this.perfilService.findByDescricao(usuario.getPerfil().getDescricao()));
+        usuarioSelecionado.setStatus(usuario.getStatus() == null ? usuarioSelecionado.getStatus() : usuario.getStatus());
 
         return UsuarioResponseDTO.toDTO(this.usuarioRepository.save(usuarioSelecionado));
     }

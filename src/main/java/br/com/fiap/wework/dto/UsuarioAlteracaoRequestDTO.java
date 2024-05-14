@@ -17,5 +17,6 @@ public record UsuarioAlteracaoRequestDTO(
         String email,
         String senha,
         @NotBlank(message = "O perfil é obrigatorio.")
-        String perfil) implements Serializable {
+        String perfil,
+        String status) implements Serializable {
 }

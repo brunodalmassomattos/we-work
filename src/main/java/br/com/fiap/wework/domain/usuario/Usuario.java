@@ -37,4 +37,6 @@ public class Usuario {
 
     @ManyToOne
     private Perfil perfil;
+
+    private String status;
 }

@@ -16,7 +16,8 @@ public record UsuarioResponseDTO(
         String dataAbertura,
         String email,
         String senha,
-        Perfil perfil) implements Serializable {
+        Perfil perfil,
+        String status) implements Serializable {
 
     public static String parseDate(Date data) {
         if (data == null) {
@@ -35,6 +36,7 @@ public record UsuarioResponseDTO(
                 UsuarioResponseDTO.parseDate(save.getDataAbertura()),
                 save.getEmail(),
                 save.getSenha(),
-                save.getPerfil());
+                save.getPerfil(),
+                save.getStatus());
     }
 }

@@ -31,7 +31,8 @@ public class UsuarioController {
                         UsuarioRequestDTO.parseDate(usuarioRequestDTO.dataAbertura()),
                         usuarioRequestDTO.email(),
                         usuarioRequestDTO.senha(),
-                        Perfil.builder().descricao(usuarioRequestDTO.perfil()).build())));
+                        Perfil.builder().descricao(usuarioRequestDTO.perfil()).build(),
+                        "ATIVO")));
     }
 
     @PutMapping("/{id}")
@@ -44,7 +45,8 @@ public class UsuarioController {
                         UsuarioRequestDTO.parseDate(usuarioRequestDTO.dataAbertura()),
                         usuarioRequestDTO.email(),
                         usuarioRequestDTO.senha(),
-                        Perfil.builder().descricao(usuarioRequestDTO.perfil()).build())));
+                        Perfil.builder().descricao(usuarioRequestDTO.perfil()).build(),
+                        usuarioRequestDTO.status())));
     }
 
 }
