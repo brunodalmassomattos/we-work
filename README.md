@@ -39,5 +39,29 @@ curl --location 'http://localhost:8080/auth/login' \
 }'
 ```
 
-
-
+#### Salva Usuario #### 
+```console
+curl --location 'http://localhost:8080/user' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nome": "Rodrigo Enrico Castro",
+    "cpfCnpj": "989.201.571-11",
+    "dataNascimento": "1991-03-24",
+    "email": "rodrigoenricocastro@ornatopresentes.com.br",
+    "senha": "OwiNwql00Z",
+    "perfil": "LOCATARIO"
+}'
+```
+### Altera Usuario ###
+```console
+curl --location --request PUT 'http://localhost:8080/user/67d65233-c7b9-4264-a006-d83b79e79ce2' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "nome": "Rodrigo Enrico Castro",
+    "cpfCnpj": "989.201.571-11",
+    "dataNascimento": "1991-03-24",
+    "email": "rodrigoenricocastro@ornatopresentes.com.br",
+    "perfil": "LOCADOR",
+    "status": "INATIVO"
+}'
+```
